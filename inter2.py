@@ -1,24 +1,43 @@
+
 nome=input("Digite seu nome     ")
 saldo=1000.00
 print("Olá %s oque deseja fazer?"%(nome))
 while True:
     escolha=int(input("1-extrato    2-depositar 3-meu porquinho     4-sair      "))
     if escolha==4:
-        print("\033[93m Obrigado pela escolha, espero que nosso serviço tenha te satisfeito :)")
+        print("\033[93m Obrigado pela escolha, espero que nosso serviço tenha te satisfeito :)\033[0m")
         break
     if escolha==1:
-        print("Não ha depositos recentes mas seu saldo é de saldo R$%-5.2f"%(saldo))
+        print("\033[32m Não ha depositos recentes mas seu saldo é de saldo R$%-5.2f\033[0m"%(saldo))
     elif escolha==2:
         quem=input("Para quem você irá depositar?           ")
-        quanto=int(input("Digite quanto você irá depositar          "))
-        confirmação=input("Você confirma sua transação          ").lower
+        quanto=float(input("Digite quanto você irá depositar          "))
+        confirmação=input("Você confirma sua transação          ").lower()
         if confirmação=="sim":
-            print("parabéns você depositou R$%-5.2f para %s, agora você tem %f"% (quanto, quem, saldo))
+            if quanto<=saldo:
+                saldo-=quanto
+                print("\033[38;5;10m parabéns você depositou R$%-5.2f para %s, agora você tem %f\033[0m"% (quanto, quem, saldo))
+                print("\033[32m Transação aprovada\033[0m")
+            else:
+                print("\033[31m Você não tem esse dinheiro, pobre, você neste momento tem %f\033[0m"%(saldo))
         else:
             print("\033[31m Tranferencia cancelada\033[0m")
     elif escolha==3:
         pupanca=0.0
-        print("Olá %s estamos muito felizes em saber que quer investir, seu saldo da conta poupança é de %-5.2"% (nome,pupanca))
+        print("Olá %s estamos muito felizes em saber que quer investir, seu saldo da conta poupança é de %-5.2f"% (nome,pupanca))
+        deposito_pou=float(input("Quanto ira colocar na poupança?           "))
+        confirmação_pou=input("Você %s confirma sua tranferencia de %-5.2f para a conta poupança?       "% (nome, deposito_pou)).lower()
+        if confirmação_pou=="sim":
+            if deposito_pou<=saldo:
+                var3=saldo
+                saldo-=deposito_pou
+                deposito_pou=var3-saldo
+                print("\033[32m Deposito feito\033[0m")
+                print("\033[93m Nossas agências trabalham sempre com a verdade por isso nossa poupança rende 14,75'%'ao ano ")
+                print("Um exemplo é que colocando R$1000.00 no porquinho por 5 meses daria R$3.500.00 sem juros compostos\033[0m")
+
+                
+
     
     
         
