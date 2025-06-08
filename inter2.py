@@ -12,7 +12,7 @@ while True:
     elif escolha==2:
         quem=input("Para quem você irá depositar?           ")
         quanto=float(input("Digite quanto você irá depositar          "))
-        confirmação=input("Você confirma sua transação          ").lower()
+        confirmação=input("Você confirma sua transação          ").lower()      
         if confirmação=="sim":
             if quanto<=saldo:
                 saldo-=quanto
@@ -35,6 +35,21 @@ while True:
                 print("\033[32m Deposito feito\033[0m")
                 print("\033[93m Nossas agências trabalham sempre com a verdade por isso nossa poupança rende 14,75'%'ao ano ")
                 print("Um exemplo é que colocando R$1000.00 no porquinho por 5 meses daria R$3.500.00 sem juros compostos\033[0m")
+                meses=int(input("Quantos meses ficará seu deposito de %-5.2f ?"%(deposito_pou)))
+                rendimento=(deposito_pou*0.5)*meses + deposito_pou
+                print("Seu rendimento final,sera de: %-5.2f"% (rendimento))
+                saldo=rendimento
+                
+            else:
+                print("\033[31m Erro \033[0m")
+        else:
+            print("\033[31m Tranferencia cancelada\033[0m")
+    else:
+        print("\033[31m Erro \033[0m")
+
+
+
+
 
                 
 
