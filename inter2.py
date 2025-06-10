@@ -1,14 +1,16 @@
 
+
 nome=input("Digite seu nome     ")
 saldo=1000.00
 print("Olá %s oque deseja fazer?"%(nome))
+extrato=""
 while True:
     escolha=int(input("1-extrato    2-depositar 3-meu porquinho     4-sair      "))
     if escolha==4:
         print("\033[93m Obrigado pela escolha, espero que nosso serviço tenha te satisfeito :)\033[0m")
         break
     if escolha==1:
-        print("\033[32m Não ha depositos recentes mas seu saldo é de saldo R$%-5.2f\033[0m"%(saldo))
+        print(f"\033[32m {extrato}Seu saldo é de saldo R$%-5.2f\033[0m"%(saldo))
     elif escolha==2:
         quem=input("Para quem você irá depositar?           ")
         quanto=float(input("Digite quanto você irá depositar          "))
@@ -16,7 +18,7 @@ while True:
         if confirmação=="sim":
             if quanto<=saldo:
                 saldo-=quanto
-                print("\033[38;5;10m parabéns você depositou R$%-5.2f para %s, agora você tem %f\033[0m"% (quanto, quem, saldo))
+                extrato=("\033[38;5;10m você depositou R$%-5.2f para %s."% (quanto, quem,))
                 print("\033[32m Transação aprovada\033[0m")
             else:
                 print("\033[31m Você não tem esse dinheiro, pobre, você neste momento tem %f\033[0m"%(saldo))
