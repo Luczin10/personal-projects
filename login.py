@@ -22,5 +22,5 @@ def login_banco():
 login_banco()
 
 
-def quaisquer ():
+
     
