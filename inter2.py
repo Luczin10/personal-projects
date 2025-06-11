@@ -1,6 +1,17 @@
-
-
-nome=input("Digite seu nome     ")
+import login2
+def verificação():
+    while True:
+       
+        global nome 
+        nome=input("Digite seu nome de login")
+        for nomes in login2.Usuario:
+            if nome==nomes:
+                print("Bem vindo")  
+                return
+            else:
+                print("Login não existente, tente novamente") 
+                break
+verificação()
 saldo=1000.00
 print("Olá %s oque deseja fazer?"%(nome))
 extrato=""
@@ -48,14 +59,5 @@ while True:
             print("\033[31m Tranferencia cancelada\033[0m")
     else:
         print("\033[31m Erro \033[0m")
-
-
-
-
-
-                
-
     
-    
-        
-
+            
