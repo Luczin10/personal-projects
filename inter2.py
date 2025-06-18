@@ -49,7 +49,7 @@ while True:
                 print("\033[93m Nossas agências trabalham sempre com a verdade por isso nossa poupança rende 14,75'%'ao ano ")
                 print("Um exemplo é que colocando R$1000.00 no porquinho por 5 meses daria R$3.500.00 sem juros compostos\033[0m")
                 meses=int(input("Quantos meses ficará seu deposito de %-5.2f ?"%(deposito_pou)))
-                rendimento=(deposito_pou*0.5)*meses + deposito_pou
+                rendimento=(deposito_pou*0.01*meses)+deposito_pou
                 print("Seu rendimento final,sera de: %-5.2f"% (rendimento))
                 saldo=rendimento
                 
